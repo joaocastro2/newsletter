@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Newsletter | Cadastro de Clientes</title>
+    <h:outputStylesheet library="primefaces" name="primeicons/primeicons.css"/>
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 1rem;
+        }
+
+        .custom-card {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: none;
+        }
+
+        .form-field {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-field label {
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.9rem;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .btn-submit {
+            margin-top: 0.5rem;
+            height: 2.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-title i {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-title h2 {
+            margin: 0;
+            color: #1e293b;
+            font-size: 1.5rem;
+        }
+
+        .header-title p {
+            margin: 0.25rem 0 0 0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+    <div class="card-container">
+        <p:card styleClass="custom-card">
+
+            <div class="header-title">
+                <i class="pi pi-send"></i>
+                <h2>Newsletter</h2>
+                <p>Receba nossas novidades e atualizações</p>
+            </div>
+
+            <h:form id="formNewsletter">
+                <p:messages id="messages" showDetail="true" closable="true" styleClass="full-width" />
+
+                <div class="form-field">
+                    <p:outputLabel for="nome" value="Nome Completo" />
+                    <p:inputText id="nome"
+                                 value="#{newsletterCustomerBean.name}"
+                                 required="true"
+                                 requiredMessage="O campo Nome é obrigatório."
+                                 placeholder="Digite seu nome"
+                                 styleClass="full-width" />
+                </div>
+
+                <div class="form-field">
+                    <p:outputLabel for="email" value="Endereço de E-mail" />
+                    <p:inputText id="email"
+                                 value="#{newsletterCustomerBean.mail}"
+                                 required="true"
+                                 requiredMessage="O campo E-mail é obrigatório."
+                                 placeholder="exemplo@email.com"
+                                 styleClass="full-width">
+                        <f:validateRegex pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+                    </p:inputText>
+                </div>
+
+                <p:commandButton value="Cadastrar-se"
+                                 actionListener="#{newsletterCustomerBean.cadastrar}"
+                                 update="formNewsletter"
+                                 icon="pi pi-check-circle"
+                                 styleClass="ui-button-primary full-width btn-submit" />
+            </h:form>
+
+        </p:card>
+    </div>
+
+</h:body>
+</html>
