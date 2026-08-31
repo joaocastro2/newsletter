@@ -38,6 +38,16 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.joinfaces</groupId>
+				<artifactId>primefaces-spring-boot-starter</artifactId>
+			</dependency>
+
+			<!-- 2. Adicione esta dependência do motor Mojarra -->
+			<dependency>
+				<groupId>org.joinfaces</groupId>
+				<artifactId>mojarra-spring-boot-starter</artifactId>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -79,6 +89,12 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-database-oracle</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>14.0.0</version>
+			<classifier>jakarta</classifier>
 		</dependency>
 	</dependencies>
 
