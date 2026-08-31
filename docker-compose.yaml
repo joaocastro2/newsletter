@@ -8,7 +8,7 @@ services:
       - "1521:1521"
     environment:
       ORACLE_PASSWORD: ${ORACLE_PASSWORD}
-      APP_USER: ${APP_USER}
-      APP_USER_PASSWORD: ${APP_USER_PASSWORD}
+      ORACLE_APP_USER: ${DB_USERNAME}
+      ORACLE_APP_USER_PASSWORD: ${DB_PASSWORD}
 volumes:
   oracle_data:
